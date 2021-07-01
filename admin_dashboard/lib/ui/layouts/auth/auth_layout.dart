@@ -55,7 +55,7 @@ class _DesktopBody extends StatelessWidget {
         height: size.height * 0.95,
         child: Row(children: [
           /* Twitter background */
-          CustomBackground(),
+          Expanded(child: CustomBackground()),
           /* Vistas => Formulario */
           Container(
               width: 600.0,

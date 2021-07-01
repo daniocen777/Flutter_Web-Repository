@@ -5,21 +5,20 @@ class CustomBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+        decoration: _buildBackgroundImage(),
         child: Container(
-            decoration: _buildBackgroundImage(),
-            child: Container(
-                constraints: BoxConstraints(
-                  maxWidth: 400.0,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                  child: Center(
-                      child: Image(
-                    image: AssetImage('twitter-white-logo.png'),
-                    width: 400.0,
-                  )),
-                ))));
+            constraints: BoxConstraints(
+              maxWidth: 400.0,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Center(
+                  child: Image(
+                image: AssetImage('twitter-white-logo.png'),
+                width: 400.0,
+              )),
+            )));
   }
 
   BoxDecoration _buildBackgroundImage() {
