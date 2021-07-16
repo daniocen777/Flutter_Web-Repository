@@ -1,13 +1,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
 
-import 'package:admin_dashboard/ui/views/blank_view.dart';
 import 'package:admin_dashboard/routers/routers.dart';
 import 'package:admin_dashboard/providers/side_menu_provider.dart';
-import 'package:admin_dashboard/ui/views/icons_view.dart';
-import 'package:admin_dashboard/ui/views/login_view.dart';
-import 'package:admin_dashboard/ui/views/dashboard_view.dart';
 import 'package:admin_dashboard/providers/auth_provider.dart';
+import 'package:admin_dashboard/ui/views/index.dart';
 
 class DashboardHandlers {
   static Handler main =
@@ -36,6 +33,50 @@ class DashboardHandlers {
     }
   });
 
+  /* Categorías */
+  static Handler categories =
+      new Handler(handlerFunc: (context, Map<String, List<String>> parameters) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPage(Flurorouter.categoriesRoute);
+    if (authProvider.authState == AuthStatus.authenticated) {
+      return CategoriesView();
+    } else {
+      return LoginView();
+    }
+  });
+
+  /* Users */
+  static Handler users =
+      new Handler(handlerFunc: (context, Map<String, List<String>> parameters) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPage(Flurorouter.usersRoute);
+    if (authProvider.authState == AuthStatus.authenticated) {
+      return UsersView();
+    } else {
+      return LoginView();
+    }
+  });
+  /* Usuario para editar */
+  static Handler user =
+      new Handler(handlerFunc: (context, Map<String, List<String>> parameters) {
+    final authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SideMenuProvider>(context, listen: false)
+        .setCurrentPage(Flurorouter.userRoute);
+    if (authProvider.authState == AuthStatus.authenticated) {
+      /* Verificar el envío de "uid" en la url */
+      if (parameters['uid']?.first != null) {
+        return UserView(uid: parameters['uid']!.first);
+      } else {
+        return UsersView();
+      }
+    } else {
+      return LoginView();
+    }
+  });
+
+  /* Página en blanco */
   static Handler blank =
       new Handler(handlerFunc: (context, Map<String, List<String>> parameters) {
     final authProvider = Provider.of<AuthProvider>(context!);

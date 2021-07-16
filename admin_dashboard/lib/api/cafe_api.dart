@@ -18,7 +18,7 @@ class CafeApi {
     try {
       final response = await _dio.get(path);
       return response.data;
-    } catch (e) {
+    } on DioError catch (e) {
       throw ('ERROR ==> cafe_api | httpGet | $e');
     }
   }
@@ -28,8 +28,28 @@ class CafeApi {
     try {
       final response = await _dio.post(path, data: formData);
       return response.data;
-    } catch (e) {
+    } on DioError catch (e) {
       throw ('ERROR ==> cafe_api | httpPost | $e');
+    }
+  }
+
+  static Future httpPut(String path, Map<String, dynamic> data) async {
+    final formData = FormData.fromMap(data);
+    try {
+      final response = await _dio.put(path, data: formData);
+      return response.data;
+    } on DioError catch (e) {
+      throw ('ERROR ==> cafe_api | httpPut | $e');
+    }
+  }
+
+  static Future httpDelete(String path, Map<String, dynamic> data) async {
+    final formData = FormData.fromMap(data);
+    try {
+      final response = await _dio.delete(path, data: formData);
+      return response.data;
+    } on DioError catch (e) {
+      throw ('ERROR ==> cafe_api | httpDelete | $e');
     }
   }
 }

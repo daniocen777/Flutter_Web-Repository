@@ -12,15 +12,16 @@ class SearchText extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           color: Colors.grey.withOpacity(0.1),
         ),
-        child: TextField(
-            decoration: CustomInput.searchInputDecoration(
+        child: TextFormField(
+            initialValue: 'buscando',
+            decoration: CustomInputs.searchInputDecoration(
                 hint: 'Buscar', icon: Icons.search_outlined)));
   }
 
-  BoxDecoration _buildBoxDecoration() {
+  /* BoxDecoration _buildBoxDecoration() {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(10.0),
       color: Colors.grey.withOpacity(0.1),
     );
-  }
+  } */
 }

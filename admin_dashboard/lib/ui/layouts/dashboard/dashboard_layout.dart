@@ -35,11 +35,7 @@ class _DashboardLayoutState extends State<DashboardLayout>
               /* Navbar */
               Navbar(),
               /* Vistas */
-              Expanded(
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 10.0),
-                      child: this.widget.child))
+              Expanded(child: Container(child: this.widget.child))
             ]))
           ]),
           if (size.width < 700)

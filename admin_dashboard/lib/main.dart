@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:admin_dashboard/api/cafe_api.dart';
-import 'package:admin_dashboard/providers/side_menu_provider.dart';
-import 'package:admin_dashboard/services/notifications_service.dart';
+import 'package:admin_dashboard/providers/index.dart';
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
 import 'package:admin_dashboard/ui/layouts/splash/splash_layout.dart';
-import 'package:admin_dashboard/providers/auth_provider.dart';
+import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
+
 import 'package:admin_dashboard/routers/routers.dart';
 import 'package:admin_dashboard/services/local_storage.dart';
+import 'package:admin_dashboard/services/notifications_service.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
-import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 
 void main() async {
   await LocalStorage.configurePreferences();
@@ -31,6 +31,10 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(lazy: false, create: (_) => AuthProvider()),
         ChangeNotifierProvider(lazy: false, create: (_) => SideMenuProvider()),
+        // lazy: true por defecto => Se inicializar bajo demanda
+        ChangeNotifierProvider(create: (_) => CategoriesProvider()),
+        ChangeNotifierProvider(create: (_) => UsersProvider()),
+        ChangeNotifierProvider(create: (_) => UserFormProvider()),
       ],
       child: MyApp(),
     );

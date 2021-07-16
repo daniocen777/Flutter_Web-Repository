@@ -11,11 +11,12 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     final _user = Provider.of<AuthProvider>(context).user!;
     return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         /* ListView => Para hacer un scroll */
         child: ListView(physics: ClampingScrollPhysics(), children: [
-      Text('Vista Dashboard', style: CustomLabels.h1),
-      SizedBox(height: 10.0),
-      WhiteCard(title: _user.nombre, child: Text(_user.correo)),
-    ]));
+          Text('Vista Dashboard', style: CustomLabels.h1),
+          SizedBox(height: 10.0),
+          WhiteCard(title: _user.nombre, child: Text(_user.correo)),
+        ]));
   }
 }

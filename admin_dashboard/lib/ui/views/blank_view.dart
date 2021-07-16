@@ -8,12 +8,13 @@ class BlankView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return Container(
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         /* ListView => Para hacer un scroll */
         child: ListView(physics: ClampingScrollPhysics(), children: [
-      Text('Página en Blanco', style: CustomLabels.h1),
-      SizedBox(height: 10.0),
-      WhiteCard(title: 'Título del Card', child: Text('holas mundos')),
-    ]));
+          Text('Página en Blanco', style: CustomLabels.h1),
+          SizedBox(height: 10.0),
+          WhiteCard(title: 'Título del Card', child: Text('holas mundos')),
+        ]));
   }
 }

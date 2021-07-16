@@ -1,7 +1,8 @@
-import 'package:admin_dashboard/models/http/auth_response.dart';
-import 'package:admin_dashboard/services/notifications_service.dart';
 import 'package:flutter/widgets.dart';
 
+import 'package:admin_dashboard/models/http/auth_response.dart';
+import 'package:admin_dashboard/models/user.dart';
+import 'package:admin_dashboard/services/notifications_service.dart';
 import 'package:admin_dashboard/api/cafe_api.dart';
 import 'package:admin_dashboard/routers/routers.dart';
 import 'package:admin_dashboard/services/local_storage.dart';

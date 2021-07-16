@@ -15,7 +15,7 @@ class Sidebar extends StatelessWidget {
   const Sidebar({Key? key}) : super(key: key);
 
   void _navigateTo(String routeName) {
-    NavigationService.navigateTo(routeName);
+    NavigationService.replaceTo(routeName);
     SideMenuProvider.closeMenu();
   }
 
@@ -43,17 +43,20 @@ class Sidebar extends StatelessWidget {
               icon: Icons.show_chart_outlined,
               onPress: () => print('Análisis')),
           MenuItem(
+              isActive:
+                  sideMenuProvider.currentPage == Flurorouter.categoriesRoute,
               text: 'Categorías',
               icon: Icons.dashboard_outlined,
-              onPress: () => print('Categorías')),
+              onPress: () => this._navigateTo(Flurorouter.categoriesRoute)),
           MenuItem(
               text: 'Descuentos',
               icon: Icons.attach_money_outlined,
               onPress: () => print('Descuentos')),
           MenuItem(
-              text: 'Clientes',
+              isActive: sideMenuProvider.currentPage == Flurorouter.usersRoute,
+              text: 'Usuarios',
               icon: Icons.people_alt_outlined,
-              onPress: () => print('Clientes')),
+              onPress: () => this._navigateTo(Flurorouter.usersRoute)),
           MenuItem(
               text: 'Órdenes',
               icon: Icons.shopping_cart_outlined,

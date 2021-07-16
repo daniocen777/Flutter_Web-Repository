@@ -43,10 +43,10 @@ class RegisterView extends StatelessWidget {
                                   },
                                   style: TextStyle(
                                       color: Colors.white.withOpacity(0.8)),
-                                  decoration: CustomInput.authInputDecoration(
+                                  decoration: CustomInputs.loginInputDecoration(
                                       hint: 'Ingrese su nombre',
                                       label: 'Nombre',
-                                      iconData: Icons.person_outline)),
+                                      icon: Icons.person_outline)),
                               SizedBox(height: 20.0),
                               /* Correo */
                               TextFormField(
@@ -59,10 +59,10 @@ class RegisterView extends StatelessWidget {
                                   },
                                   style: TextStyle(
                                       color: Colors.white.withOpacity(0.8)),
-                                  decoration: CustomInput.authInputDecoration(
+                                  decoration: CustomInputs.loginInputDecoration(
                                       hint: 'Ingrese su correo',
                                       label: 'Correo',
-                                      iconData: Icons.email_outlined)),
+                                      icon: Icons.email_outlined)),
                               SizedBox(height: 20.0),
                               /* Contraseña */
                               TextFormField(
@@ -78,10 +78,10 @@ class RegisterView extends StatelessWidget {
                                   },
                                   style: TextStyle(
                                       color: Colors.white.withOpacity(0.8)),
-                                  decoration: CustomInput.authInputDecoration(
+                                  decoration: CustomInputs.loginInputDecoration(
                                       hint: '**********',
                                       label: 'Contraseña',
-                                      iconData: Icons.lock_outline)),
+                                      icon: Icons.lock_outline)),
                               SizedBox(height: 20.0),
                               CustomOutlinedButton(
                                   onPress: () {
@@ -101,7 +101,7 @@ class RegisterView extends StatelessWidget {
                               SizedBox(height: 20.0),
                               LinkText(
                                   text: 'Ir al login',
-                                  onPress: () => Navigator.pushNamed(
+                                  onPress: () => Navigator.pushReplacementNamed(
                                       context, Flurorouter.loginRoute))
                             ])))));
           },

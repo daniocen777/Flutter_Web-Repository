@@ -44,10 +44,10 @@ class LoginView extends StatelessWidget {
                               },
                               style: TextStyle(
                                   color: Colors.white.withOpacity(0.8)),
-                              decoration: CustomInput.authInputDecoration(
+                              decoration: CustomInputs.loginInputDecoration(
                                   hint: 'Ingrese su correo',
                                   label: 'Correo',
-                                  iconData: Icons.email_outlined),
+                                  icon: Icons.email_outlined),
                             ),
                             SizedBox(height: 20.0),
                             /* Contraseña */
@@ -59,17 +59,17 @@ class LoginView extends StatelessWidget {
                                 validator: (value) {
                                   if (value == null || value.isEmpty)
                                     return 'Debe ingresar una contraseña';
-                                  if (value.length <= 6)
+                                  if (value.length < 5)
                                     return 'Contraseña con al menos 6 caracteres';
 
                                   return null;
                                 },
                                 style: TextStyle(
                                     color: Colors.white.withOpacity(0.8)),
-                                decoration: CustomInput.authInputDecoration(
+                                decoration: CustomInputs.loginInputDecoration(
                                     hint: '**********',
                                     label: 'Contraseña',
-                                    iconData: Icons.lock_outline)),
+                                    icon: Icons.lock_outline)),
                             SizedBox(height: 20.0),
                             CustomOutlinedButton(
                                 onPress: () => _onFormSubmit(
@@ -78,7 +78,7 @@ class LoginView extends StatelessWidget {
                             SizedBox(height: 20.0),
                             LinkText(
                                 text: 'Nueva cuenta',
-                                onPress: () => Navigator.pushNamed(
+                                onPress: () => Navigator.pushReplacementNamed(
                                     context, Flurorouter.registerRoute))
                           ])))));
         }));

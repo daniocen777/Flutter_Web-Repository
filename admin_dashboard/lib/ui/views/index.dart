@@ -1,0 +1,9 @@
+export './categories_view.dart';
+export './blank_view.dart';
+export './dashboard_view.dart';
+export './icons_view.dart';
+export './login_view.dart';
+export './not_page_found_view.dart';
+export './register_view.dart';
+export './user_view.dart';
+export './users_view.dart';
